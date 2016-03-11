@@ -1,0 +1,29 @@
+<ion-view title="On boarding Complete">
+    <ion-content padding="'true'" style="background: url(img/FIEzXBboSTEpwhqrmm63_facesBG.jpg) no-repeat center;" class="has-header">
+        <div class="spacer" style="height: 100px;"></div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h1>You're done.</h1>
+                <h2>Thanks for signing up. Please give us 24 hours to verify your information.</h2>
+            </div>
+        </div>
+        <div ng-show="isEmployer()" class="card">
+            <div class="item item-text-wrap">
+                <h3>Next steps</h3>
+                <p>Check out the menu on the left. Swipe to open or click the icon.</p>
+                <a menu-close="" ui-sref="navigation.viewStaffers" class="button button-balanced button-block  icon-right ion-ios-arrow-right">View Staffers</a>
+                <a menu-close="" ui-sref="navigation.non-AuthenticatedHome" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Home</a>
+                <a menu-close="" ui-sref="navigation.setAvailability" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Update your Availability</a>
+                <a menu-close="" ui-sref="navigation.non-AuthenticatedHome" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Home</a>
+            </div>
+        </div>
+        <div ng-show="isWorker()" class="card">
+            <div class="item item-text-wrap">
+                <h3>Next steps</h3>
+                <p>Check out the menu on the left. Swipe to open or click the icon.</p>
+                <a menu-close="" ui-sref="navigation.setAvailability" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Update your Availability</a>
+                <a menu-close="" ui-sref="navigation.skills" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Set your skills and rates</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

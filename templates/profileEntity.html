@@ -1,0 +1,48 @@
+<ion-view title="Profile">
+    <ion-content padding="'true'" class="has-header">
+        <div class="list card">
+            <!-- <div class="item item-divider">{{getCurrentUser().firstName}} {{getCurrentUser().lastName}}</div> -->
+            <a class="item item-thumbnail-left" href="#">
+                <img src="">
+                <h1>{{getCurrentUser().entityId.name}}</h1>
+                <!--                 <h3>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star-half"></i>
+                    <i class="fa ion-ios-star-outline"></i>{{user.rating}}
+                </h3>
+ -->
+            </a>
+            <div class="item item-text-wrap">
+                <div class="list">
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-person-stalker"></i>{{getCurrentUser().entityId.constactPerson}}
+                    </h1>
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-email"></i>{{getCurrentUser().entityId.email}}
+                    </h1>
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-ios-telephone"></i> {{getCurrentUser().entityId.phoneNumber}}
+                    </h1>
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-spoon"></i> {{getCurrentUser().entityId.type}}
+                    </h1>
+                    <h1 class="item item-icon-left" ng-repeat="user in getCurrentUser().entityId.users">
+                        <i class="icon ion-person-stalker"></i> {{user}}
+                    </h1>
+                </div>
+                <h1 class=""><i class="icon ion-location"></i></h1>
+                <h2>{{getCurrentUser().entityId.address.street}}</h2>
+                <h2>{{getCurrentUser().entityId.address.city}}</h2>
+                <h2>{{getCurrentUser().entityId.address.code}}</h2>
+                <h4>{{getCurrentUser().entityId.description}}</h4>
+            </div>
+        </div>
+        <ion-list>
+            <!-- <ion-item menu-close="" ng-repeat="skill in getCurrentUser().skills">{{skill}}</ion-item> -->
+        </ion-list>
+        </div>
+        <a menu-close="" href="#/profile-entity-edit" class="button button-balanced button-block  icon-right ion-android-create">Edit</a>
+    </ion-content>
+</ion-view>

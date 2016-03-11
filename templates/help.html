@@ -1,0 +1,15 @@
+<ion-view title="Help">
+    <ion-content padding="'true'" class="has-header">
+        <h1>Help / Report issue</h1>
+        <div>
+            <p>Please describe the issue, bug or quesion.</p>
+        </div>
+        <div class="spacer" style="height: 100px;"></div>
+        <form class="list" name="form">
+            <label class="item item-input" name="issue">
+                <textarea ng-model="data.question" placeholder="What seems to be the problem?"> </textarea>
+            </label>
+            <button ng-click="postQuestion( form )" class="button button-energized button-block ">Ask</button>
+        </form>
+    </ion-content>
+</ion-view>

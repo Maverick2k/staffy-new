@@ -1,0 +1,41 @@
+<ion-view title="Edit Business Profile">
+    <ion-content padding="'true'" class="has-header">
+        <form class="list" action="users" method="PUT">
+            <!-- <button class="button button-stable button-icon button-large icon ion-camera">Change Picture</button> -->
+            <label class="item item-input" name="name">
+                <span class="input-label">Bussiness Name</span>
+                <input type="text" ng-model="getCurrentUser().entityId.name" placeholder="Name">
+            </label>
+            <label class="item item-input" name="contactPerson">
+                <span class="input-label">Contact Name</span>
+                <input type="text" ng-model="getCurrentUser().entityId.contactPerson" placeholder="contactPerson">
+            </label>
+            <label class="item item-input" name="email">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="getCurrentUser().entityId.email" placeholder="email">
+            </label>
+            <label class="item item-input" name="phoneNumber">
+                <span class="input-label">Phone Number</span>
+                <input type="tel" ng-model="getCurrentUser().entityId.phoneNumber" placeholder="Phone Number">
+            </label>
+            <label class="item item-input" name="address">
+                <span class="input-label">Street</span>
+                <input ng-model="getCurrentUser().entityId.address.street" type="text" placeholder="Street Address">
+            </label>
+            <label class="item item-input" name="postalcode">
+                <span class="input-label">Postal Code</span>
+                <input ng-model="getCurrentUser().entityId.address.code" type="text" placeholder="Postal Code">
+            </label>
+            <label class="item item-input" name="city">
+                <span class="input-label">City</span>
+                <input ng-model="getCurrentUser().entityId.address.city" type="text" placeholder="City">
+            </label>
+            <label class="item item-input" name="about">
+                <span class="input-label">About</span>
+                <textarea ng-model="getCurrentUser().entityId.description" placeholder="{{getCurrentUser().entityId.description}}"> </textarea>
+            </label>
+        </form>
+        <button ng-click="updateEntityProfile()" class="button button-balanced button-block ">Save</button>
+        <button ng-click="cancelUpdate()" class="button button-balanced button-block ">Cancel</button>
+    </ion-content>
+</ion-view>

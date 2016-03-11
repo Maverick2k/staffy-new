@@ -1,0 +1,16 @@
+<ion-view title="Skills and Rates">
+    <ion-content padding="'true'" class="has-header">
+        <h2>Set rates & skills to get hired.</h2>
+        <div class="list">
+            <div class="item" ng-repeat="skill in getCurrentUser().skills">
+                <ion-toggle toggle-class="toggle-positive" ng-model="skill.has" ng-checked="{{skill.has}}">{{skill.name}}</ion-toggle>
+                <span class="input-label">Rate ${{skill.rate}} /hour:</span>
+                <div class="range range-positive" width="100%">
+                    <input ng-model="skill.rate" type="range" name="rate" min="5" max="40" value="{{skill.rate}}">
+                </div>
+            </div>
+        </div>
+        <button ng-click="updateSkills()" class="button button-balanced button-block ">Save</button>
+        <button ng-click="cancelUpdate()" class="button button-balanced button-block ">Cancel</button>
+    </ion-content>
+</ion-view>

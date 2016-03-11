@@ -1,0 +1,20 @@
+<ion-view title="Notification">
+    <ion-content padding="'true'" class="has-header">
+        <div class="list card">
+            <!-- <div class="item item-thumbnail-left"></div> -->
+                <h1>{{dataStore.loadedNotification.type}}</h1>
+                <p>{{dataStore.loadedNotification.body}}</p>
+                <p>{{dataStore.loadedNotification.job.state}}</p>
+                <p>{{dataStore.loadedNotification.job.skill}}</p>
+                <p>{{dataStore.loadedNotification.creator.name}}</p>
+                <div ng-show="dataStore.loadedNotification.type == 'job' && dataStore.loadedNotification.job.loadedNotification && dataStore.loadedNotification.job.state == 'offer' ">
+                    <button class="button button-full button-positive">
+                        Accept Job
+                    </button>
+                    <button class="button button-full button-assertive">
+                        Deny Job
+                    </button>
+                </div>
+            {{dataStore.loadedNotification}}
+    </ion-content>
+</ion-view>

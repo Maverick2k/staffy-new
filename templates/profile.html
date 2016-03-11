@@ -1,0 +1,49 @@
+<ion-view title="Profile">
+    <ion-content padding="'true'" class="has-header">
+        <div class="list card">
+        {{routeParams}}
+            <!-- <div class="item item-divider">{{getCurrentUser().firstName}} {{getCurrentUser().lastName}}</div> -->
+            <a class="item item-thumbnail-left" href="#">
+                <!-- <img src="img/avatar-default.jpg"> -->
+                <!-- <img src="http://staffy-static-storage.s3.amazonaws.com/uploads/{{getCurrentUser().profileUrl.name}}"> -->
+                <img class="img-cover" src="{{profilePic()}}">
+                <h1>{{getCurrentUser().firstName}} {{getCurrentUser().lastName}}</h1>
+                <!--                 <h3>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star"></i>
+                    <i class="fa ion-ios-star-half"></i>
+                    <i class="fa ion-ios-star-outline"></i>{{user.rating}}
+                </h3>
+ --></a>
+            <div class="item item-text-wrap">
+                <div class="list">
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-email"></i>{{getCurrentUser().email}}
+                    </h1>
+                    <h1 class="item item-icon-left">
+                        <i class="icon ion-ios-telephone"></i> {{getCurrentUser().phoneNumber}}
+                    </h1>
+                </div>
+                <h1>Address</h1>
+                <h2>{{getCurrentUser().address.street}}</h2>
+                <h2>{{getCurrentUser().address.city}}</h2>
+                <h2>{{getCurrentUser().address.code}}</h2>
+                <h4>{{getCurrentUser().about}}</h4>
+                <h1>Skills</h1>
+                <ion-list>
+                    <ion-item menu-close="" ng-repeat="skill in getCurrentUser().skills" ng-show="{{skill.has}}">{{skill.name}} (${{skill.rate}}/hour)</ion-item>
+                </ion-list>
+                <h1>Jobs</h1>
+                <ion-list>
+                    <ion-item menu-close="" ng-repeat="job in getCurrentUser().jobs" >
+                        <starrating stars="job.comments.entity.rating"></starrating>
+                        {{job.state}}
+                        {{job.rate}}
+                        {{job.startTime}}
+                    </ion-item>
+                </ion-list>
+            </div>
+            <a menu-close="" href="#/profile-edit" class="button button-balanced button-block  icon-right ion-android-create">Edit</a>
+    </ion-content>
+</ion-view>

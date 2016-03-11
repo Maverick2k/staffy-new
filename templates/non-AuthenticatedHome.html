@@ -1,0 +1,25 @@
+<ion-view title="Staffy">
+    <ion-content padding="'true'" style="background: url(img/eEAOi0VYRQ2gujO9icJG_facesBG.jpg) no-repeat center;" class="has-header">
+        <h1></h1>
+        <div class="list card">
+            <div class="item item-divider" ng-show="isLoggedIn()">Hello {{getCurrentUser().firstName}}</div>
+            <div class="item item-body">
+                <img src="img/fTDYgIVQfCQoUpeBCF7g_staffyLogo.png" width="100%" height="auto" style="width: 100%; height: auto;">
+                <h1 ng-show="isLoggedIn() && getCurrentUser().entityId">{{getCurrentUser().entityId.type}} - {{getCurrentUser().entityId.name}}</h1>
+                <div ng-show="isLoggedIn()">
+                    <h1>Notifications</h1>
+                    <ion-list>
+                        <ion-item menu-close="" ng-repeat="obj in getCurrentUser().notifications track by $index" ng-click="viewNotification(obj)">
+                            <h2>{{obj.type}}</h2>
+                            <p>{{obj.body}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <h1></h1>
+                </div>
+
+                <a menu-close="" ng-hide="isLoggedIn()" href="#/nav/login" class="button button-stable button-block ">Login</a>
+                <a menu-close="" ng-hide="isLoggedIn()" href="#/signup" class="button button-stable button-block ">Signup</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

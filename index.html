@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staffy</title>
+    <style>
+    .angular-google-map-container {
+        width: 100%;
+        height: 504px;
+    }
+    </style>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/ionic/js/angular-resource.js"></script>
+    <!-- <script src="lib/angular-resource/angular-resource.min.js"></script> -->
+    <!-- <script src="lib/ng-resource/dist/ng-resource.js"></script> -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,700|Lato:100,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- compiled css output -->
+    <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/user.service.js"></script>
+    <script src="js/services/auth.service.js"></script>
+    <script src="js/services/camera.service.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/directives/mongoose-error.directive.js"></script>
+</head>
+
+<body>
+	
+	<div class="benefits drawer">
+		<div class="drawer-inner">
+			<div class="container">
+				<span id="close">X</span>
+				<h2>I am...</h2>
+				<div id="tabs">
+					<ul>
+						<li><a href="#employer">Looking for staff </a></li>
+						<li><a href="#worker">Looking to work</a></li>
+  					</ul>
+  					<div id="employer">
+	  					<div class="row">
+		  					<div class="col-sm-6">
+		  						<h2>Want to hire someone?</h2>
+		  						<p>FInding temp staff can be challenging, especially last minute.  With Staffy's On-demand access, you can have a Staffer at your door typically within 90 minutes.</p>
+		  						
+		  						<h3>How you benefit</h3>
+		  						<ul class="benefit-list">
+			  						<li><i class="fa fa-check-circle"></i>Browse available contractors in the industry</li>
+			  						<li><i class="fa fa-check-circle"></i>Filter by the the criteria that's important to you (proximity, skills, hourly rate, rating, etc)</li>
+			  						<li><i class="fa fa-check-circle"></i>Get notifications when the Staffer accepts your offer</li>
+			  						<li><i class="fa fa-check-circle"></i>All transactions are automatic, no paper work</li>
+			  						<li><i class="fa fa-check-circle"></i>Looking for a contractor comes at no cost to you</li>
+			  						<li><i class="fa fa-check-circle"></i>Legitimizes transactions instead of paying cash</li>
+			  						<li><i class="fa fa-check-circle"></i>Get reports of your transactions when you want them</li>
+		  						</ul><!-- .benefit-list -->
+		  						<p>Hire Hospitality Staff in just a few clicks.</p>
+		  						<p>Find everything from dishwashers, line cooks, bartenders or sommeliers within minutes.</p>
+		  					</div><!-- .col-sm-6 -->
+		  					<div class="col-sm-6 hidden-xs relative">
+		  						<img class="job-icon" src="/img/job-search.png">
+		  					</div><!-- .col-sm-6 -->
+	  					</div><!-- .row -->
+  					</div><!-- #employer -->
+  					<div id="worker">
+	  					<div class="row">
+		  					<div class="col-sm-6">
+		  						<h2>Looking to find work?</h2>
+		  						<p>Finding jobs is easy with Staffy. You determine your own schedule. You're the boss! Browse available gigs (coming soon), and apply on your time, or, make yourself available, and the venues will find you.</p>
+		  						
+		  						<h3>How you benefit</h3>
+		  						<ul class="benefit-list">
+			  						<li><i class="fa fa-check-circle"></i>You decide how much you want to charge</li>
+			  						<li><i class="fa fa-check-circle"></i>You work when you want</li>
+			  						<li><i class="fa fa-check-circle"></i>Earn extra money on your days off</li>
+			  						<li><i class="fa fa-check-circle"></i>Fill in for longer periods, if so desired</li>
+			  						<li><i class="fa fa-check-circle"></i>Earn better ratings, and ask for more!</li>
+		  						</ul><!-- .benefit-list -->
+		  					</div><!-- .col-sm-6 -->
+		  					<div class="col-sm-6 relative">
+		  						<img class="job-icon" src="/img/job-search.png">
+		  					</div><!-- .col-sm-6 -->
+	  					</div><!-- .row -->
+  					</div><!-- #worker -->
+				</div>
+			</div><!-- .container -->
+		</div><!-- .drawer-inner -->
+	</div><!-- .learn-more .drawer -->
+	
+    <header class="header">
+		<div class="container">
+			<img class="logo" src="/img/logo.png">
+			<button id="menu-slide"></button>
+			<a class="staffer-btn hidden-xs" href="#">Become a Staffer</a>
+      	</div>
+	</header><!-- .header -->
+	
+	<div class="content">
+		<section class="top">
+			<div class="container">
+				<div class="top-inner">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Hire restaurant staff<br/> in just a few clicks</h2>
+							<p>Find everything from dish washers, waiting<br/> staff sous chefs or bartenders within minutes</p>
+						
+							<div class="actions">
+								<a class="btn-solid btn-green" href="#" data-toggle="modal" data-target="#employerSignup">I want to Hire</a>
+								<a class="btn-solid btn-blue" href="#" data-toggle="modal" data-target="#stafferSignup">I want to Work</a>
+							</div><!-- .actions -->
+							<a id="open-drawer" class="btn" href="">Learn more about Staffy</a>
+						</div><!-- .col-sm-6 -->
+					</div><!-- .row -->
+				</div><!-- .top-inner -->
+			</div><!-- .container -->
+		</section><!-- .top -->
+		<section class="why">
+			<div class="container">
+				<h2>Why choose Staffy?</h2>
+				<p>Here's just a few of the reasons to use us</p>
+				
+				<div class="row why-list">
+					<div class="col-sm-4">
+						<i class="flaticon-wand"></i>
+						<h3>Easy To Use</h3>
+						<p>Registering, setting up a profile and hiring can be done in just a few minutes.</p>
+					</div><!-- .col-sm-4 -->
+					<div class="col-sm-4">
+						<i class="flaticon-responsive"></i>
+						<h3>Always With You</h3>
+						<p>Staffy was designed to always be with you. When there's a match, we'll let you know.</p>
+					</div><!-- .col-sm-4 -->
+					<div class="col-sm-4">
+						<i class="flaticon-target"></i>
+						<h3>Hyper-focused</h3>
+						<p>We work exclusively with pairing restaurants and staff together - quickly and efficiently.</p>
+					</div><!-- .col-sm-4 -->
+					<div class="col-sm-4">
+						<i class="flaticon-shield"></i>
+						<h3>Valued Privacy</h3>
+						<p>We value your privacy. Information is never shared with the other party until both parties are interested.</p>
+					</div><!-- .col-sm-4 -->
+					<div class="col-sm-4">
+						<i class="flaticon-certificate"></i>
+						<h3>We're Experts</h3>
+						<p>As we are focused solely on the catering industry, we know it inside and out. We pass that benefit on to you.</p>
+					</div><!-- .col-sm-4 -->
+					<div class="col-sm-4">
+						<i class="flaticon-money"></i>
+						<h3>Save Money</h3>
+						<p>Whether you're a staffer or an employer, working with Staffy will save you money, both short-term and long-term.</p>
+					</div><!-- .col-sm-4 -->
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</section><!-- .why -->
+	</div><!-- .content -->
+	
+	<footer class="footer">
+		<p>Copyright &copy; Staffy 2016</p>
+		
+		<ul>
+			<li>
+				<a href="#">About</a>
+			</li>
+			<li>
+				<a href="#">Job Seekers</a>
+			</li>
+			<li>
+				<a href="#">Employers</a>
+			</li>
+			<li>
+				<a href="#">Help</a>
+			</li>
+			<li>
+				<a href="#">Privacy Policy</a>
+			</li>
+			<li>
+				<a href="#">Disclaimer</a>
+			</li>
+		</ul>
+	</footer><!-- .footer -->
+	
+	<div id="menu-slideout">
+		<div class="menu-inner">
+			<span id="close">X</span>
+			<nav id="navbar">
+				<div class="user-info visible-xs">
+					<img src="/img/nav-profile-pic.jpg">
+					<div>
+						<span>Nick Mather</span> 
+						<div><a href="/notifications.html"><i class="fa fa-lg fa-bell-o"></i><span class="badge label-danger">3</span></a></div>
+					</div>
+				</div><!-- .user-info -->
+				<ul>
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+					<li><a href="#"><i class="fa fa-clock-o"></i> Set Availability</a></li>
+					<li><a href="#"><i class="fa fa-dollar"></i> Set Skills & Rates</a></li>
+					<li><a href="#"><i class="fa fa-question"></i> Help</a></li>
+					<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+          		</ul>
+        	</nav><!-- #navbar -->
+		</div><!-- .menu-inner -->
+	</div><!-- #menu-slideout -->
+	
+	<!-- Modal -->
+	<div class="modal fade modal-signup" id="employerSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Employer Registration</h4>
+      			</div>
+	  			<div class="modal-body">
+		  			<h2>Register in two simple steps</h2>
+		  			<p class="simple">Simply fill out the information below and you'll be registered and ready to apply for jobs in no time</p>
+	  				
+	  				<form id="registration" name="form" class="list ng-valid ng-dirty ng-valid-parse" style="">
+		  				<div id="step1">
+			  				<div class="row">
+								<div class="col-xs-6">
+									<input type="text" name="firstName" placeholder="First Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6 nm">
+									<input type="text" name="lastName" placeholder="Last Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="email" name="email" placeholder="Email Address...">
+								</div><!-- .col-sm-12 -->
+								<div class="col-xs-6">
+									<input type="password" name="password" placeholder="Password...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="password" name="passwordConfirm" placeholder="Confirm...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="text" name="address" placeholder="Street Address...">
+								</div><!-- .col-xs-12 -->
+								<div class="col-xs-6">
+									<input type="text" name="postCode" placeholder="Post Code...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="city" placeholder="City...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="text" name="experience" placeholder="Experience...">
+								</div><!-- .col-xs-12 -->
+							</div><!-- .row -->
+							<div class="next-step green">Next Step</div>
+		  				</div><!-- #step1 -->
+						<div id="step2">
+							<h3>The types of staff you're looking for...</h3>
+							<div class="staffer-form-inner">
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+							</div><!-- .staffer-form-inner -->
+							<div class="final-step green">Final Step</div>
+						</div><!-- #step2 -->
+						<div id="step3">
+							<h3>Business Information</h3>
+							<div class="row">
+								<div class="col-xs-6">
+									<input type="text" name="businessName" placeholder="Restaurant Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessPhone" placeholder="Phone Number...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessEmail" placeholder="Email Contact...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="contactName" placeholder="Contact Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessUrl" placeholder="Business URL...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessAbout" placeholder="About...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessAddress" placeholder="Business Address...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessPostalCode" placeholder="Postal Code...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="businessCity" placeholder="City...">
+								</div><!-- .col-xs-6 -->
+							</div><!-- .row -->
+							<input class="green" type="submit" value="Complete Regisration">
+						</div><!-- #step3 -->
+					</form>
+	  				</div><!-- .form -->
+      			</div>
+    		</div>
+		</div>
+	</div>
+	
+	<div class="modal fade modal-signup" id="stafferSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Staffer Registration</h4>
+      			</div>
+	  			<div class="modal-body">
+		  			<h2>Register in two simple steps</h2>
+		  			<p class="simple">Simply fill out the information below and you'll be registered and ready to apply for jobs in no time</p>
+	  				
+	  				<form id="registration" name="form" class="list ng-valid ng-dirty ng-valid-parse" style="">
+		  				<div id="step1">
+			  				<div class="row">
+								<div class="col-xs-6">
+									<input type="text" name="firstName" placeholder="First Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6 nm">
+									<input type="text" name="lastName" placeholder="Last Name...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="email" name="email" placeholder="Email Address...">
+								</div><!-- .col-sm-12 -->
+								<div class="col-xs-6">
+									<input type="password" name="password" placeholder="Password...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="password" name="passwordConfirm" placeholder="Confirm...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="text" name="address" placeholder="Street Address...">
+								</div><!-- .col-xs-12 -->
+								<div class="col-xs-6">
+									<input type="text" name="postCode" placeholder="Post Code...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-6">
+									<input type="text" name="city" placeholder="City...">
+								</div><!-- .col-xs-6 -->
+								<div class="col-xs-12">
+									<input type="text" name="experience" placeholder="Experience...">
+								</div><!-- .col-xs-12 -->
+							</div><!-- .row -->
+							<div class="next-step green">Next Step</div>
+		  				</div><!-- #step1 -->
+						<div id="step2">
+							<h3>Jobs you're interested in...</h3>
+							<div class="staffer-form-inner">
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+								<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+									<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+										<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+										<i class="checkbox-icon"></i>
+									</div>
+									<div ng-transclude="" class="item-content disable-pointer-events">
+										<span class="ng-binding">busser / bar back</span>
+									</div>
+								</label>
+							</div><!-- .staffer-form-inner -->
+							<input class="green" type="submit" value="Complete Regisration">
+						</div><!-- #step2 -->
+					</form>
+      			</div>
+    		</div>
+		</div>
+	</div>
+	
+	<div class="mask"></div>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$( "#tabs" ).tabs();
+			$(".drawer-inner #close").click(function() {
+				$(".drawer").removeClass("drawer-open");
+				$(".mask").hide();
+			});
+			$("#menu-slide").click(function() {
+				$("body").addClass("menu-open");
+				$(".mask").show();
+			});
+			$(".menu-inner #close").click(function() {
+				$("body").removeClass("menu-open");
+				$(".mask").hide();
+			});
+			$("#open-drawer").click(function(event) {
+				event.preventDefault();
+				$(".drawer").addClass("drawer-open");
+				$(".mask").show();
+			});
+			
+			// Get initial height for modal
+			
+			var mcheight = $("#stafferSignup .modal-content").height();
+			var vrheight = $("#stafferSignup #step1").height();
+			var vrmheight = mcheight + vrheight;
+			$("#stafferSignup .modal-content").css("height", vrmheight + 25);
+			
+			// Set height for modal, since it needs to be bigger for the next step and add animation to move next step in to view
+			
+			$("#stafferSignup .next-step").click(function() {
+				var vrheight = $("#stafferSignup #step2").height();
+				$("#stafferSignup .modal-content").css("height", vrheight + 225);
+				$("#stafferSignup #step1").addClass("fade-out");
+				$("#stafferSignup #step2").addClass("fade-in");
+			});
+			
+			var mc2height = $("#employerSignup .modal-content").height();
+			var vr2height = $("#employerSignup #step1").height();
+			var vr2mheight = mc2height + vr2height;
+			$("#employerSignup .modal-content").css("height", vr2mheight + 25);
+			
+			// Set height for modal, since it needs to be bigger for the next step and add animation to move next step in to view
+			
+			$("#employerSignup .next-step").click(function() {
+				var vr2height = $("#employerSignup #step2").height();
+				$("#employerSignup .modal-content").css("height", vr2height + 225);
+				$("#employerSignup #step1").addClass("fade-out");
+				$("#employerSignup #step2").addClass("fade-in");
+			});
+			
+			$("#employerSignup .final-step").click(function() {
+				$("#employerSignup #step2").addClass("fade-out");
+				$("#employerSignup #step3").addClass("fade-in");
+			});
+
+		});
+	</script>
+	
+	
+</body>
+
+</html>

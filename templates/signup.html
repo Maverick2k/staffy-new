@@ -1,0 +1,42 @@
+<ion-view title="Signup">
+    <ion-content padding="'true'" scroll="false" class="has-header">
+        <form class="list" name="form">
+            <ion-list>
+                <label class="item item-input" name="firstName">
+                    <input ng-model="user.firstName" type="text" placeholder="First Name">
+                </label>
+                <label class="item item-input" name="lastName">
+                    <input ng-model="user.lastName" type="text" placeholder="Last Name">
+                </label>
+                <label class="item item-input" name="phoneNumber">
+                    <input ng-model="user.phoneNumber" type="text" placeholder="Phone Number">
+                </label>
+                <label class="item item-input" name="email">
+                    <input ng-model="user.email" type="email" placeholder="Email">
+                </label>
+                <label class="item item-input">
+                    <input ng-model="user.password" type="password" placeholder="Password">
+                </label>
+                <label class="item item-input" name="passwordConfirm">
+                    <input type="password" ng-model="user.passwordConfirm" placeholder="Confirm Password">
+                </label>
+                <label class="item item-input" name="address">
+                    <input ng-model="user.address.street" type="text" placeholder="Street Address">
+                </label>
+                <label class="item item-input" name="postalcode">
+                    <input ng-model="user.address.code" type="text" placeholder="Postal Code">
+                </label>
+                <label class="item item-input" name="city">
+                    <input ng-model="user.address.city" type="text" placeholder="City">
+                </label>
+                <label class="item item-input" name="about">
+                    <span class="input-label">Experience</span>
+                    <textarea ng-model="user.about" placeholder="Experience"> </textarea>
+                </label>
+            </ion-list>
+        </form>
+        <a ng-click="register(form)" menu-close="" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Next</a>
+        <div class="spacer" style="width: 248px; height: 44px;"></div>
+        <a menu-close="" href="#/nav/index" class="button button-balanced button-block  icon-left ion-ios-arrow-left">Cancel</a>
+    </ion-content>
+</ion-view>

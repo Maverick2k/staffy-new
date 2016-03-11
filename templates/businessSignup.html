@@ -1,0 +1,41 @@
+<ion-view title="Business Signup">
+    <ion-content padding="'true'" class="has-header">
+        <h1>Business Information</h1>
+        <h2>Tell us about your Establishment</h2>
+        <form class="list" name="form">
+            <label class="item item-input" name="name">
+                <input ng-model="biz.name" type="text" placeholder="Restaurant Name">*
+            </label>
+            <label class="item item-input" name="phoneNumber">
+                <input ng-model="biz.phoneNumber" type="tel" placeholder="Phone Number">*
+            </label>
+            <label class="item item-input" name="email">
+                <input ng-model="biz.email" type="email" placeholder="Email Contact">
+            </label>
+            <label class="item item-input">
+                <input ng-model="biz.contactPerson" type="text" placeholder="Contact Name">
+            </label>
+            <label class="item item-input">
+                <input ng-model="biz.website" type="text" placeholder="Web Site">
+            </label>
+            <label class="item item-input" name="bio">
+                <span class="input-label">about</span>
+                <textarea ng-model="biz.description" placeholder="A short description of this business."> </textarea>
+            </label>
+            <label class="item item-input" name="address">
+                <input ng-model="biz.address.street" type="text" placeholder="Restaurant Address">
+            </label>
+            <label class="item item-input" name="postalcode">
+                <input ng-model="biz.address.code" type="text" placeholder="Postal Code">
+            </label>
+            <label class="item item-input" name="city">
+                <input ng-model="biz.address.city" type="text" placeholder="City">
+            </label>
+            <!--             <label class="item item-input" name="creditcard">
+                <input ng-model="biz.creditcardnumber" type="text" placeholder="Credit Card Number">
+            </label>
+ -->
+            <a menu-close="" ng-click="registerBussiness(form)" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Next</a>
+        </form>
+    </ion-content>
+</ion-view>

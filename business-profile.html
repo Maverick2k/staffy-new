@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staffy</title>
+    <style>
+    .angular-google-map-container {
+        width: 100%;
+        height: 504px;
+    }
+    </style>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/ionic/js/angular-resource.js"></script>
+    <!-- <script src="lib/angular-resource/angular-resource.min.js"></script> -->
+    <!-- <script src="lib/ng-resource/dist/ng-resource.js"></script> -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,700|Lato:100,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- compiled css output -->
+    <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/user.service.js"></script>
+    <script src="js/services/auth.service.js"></script>
+    <script src="js/services/camera.service.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/directives/mongoose-error.directive.js"></script>
+</head>
+
+<body>
+	
+    <header class="header">
+		<div class="container">
+			<img class="logo" src="/img/logo.png">
+			<button id="menu-slide"></button>
+			<a class="staffer-btn hidden-xs" href="#">Become a Staffer</a>
+      	</div>
+	</header><!-- .header -->
+	
+	<div class="site-content">
+		<div class="profile-page business-profile">
+			<div class="profile-bg"></div>
+			<div class="container">
+				<div class="profile-content">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="profile-top">
+								<div class="profile-avatar">
+									<img src="/img/business-avatar.jpg">
+									<span>Bournemouth, United Kingdom</span>
+									<span>n.mather@gmail.com</span>
+									<span>01244 512 3330</span>
+								</div><!-- .profile-avatar -->
+							</div><!-- .profile-top -->
+						</div><!-- .col-sm-3 -->
+						<div class="col-sm-5">
+							<div class="profile-inner">
+								<div class="username">Shaf's Pizza</div>
+								<div class="job-title">Pizzaria / Pasta</div>
+			  					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.</p>
+			  					<p>Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+							</div><!-- .profile-inner -->
+						</div><!-- .col-sm-5 -->
+						<div class="col-sm-4">
+							<div class="business-info">
+								<div class="map">
+									<div id="googleMap"></div>
+									
+									<a id="directions" href="https://www.google.ca/maps/dir//43.672615,-79.821623">Get Directions</a>
+								</div><!-- .map -->
+							</div><!-- .business-info -->
+						</div><!-- .col-sm-4 -->
+					</div><!-- .row -->
+				</div><!-- .profile-content -->
+			</div><!-- .container -->
+		</div><!-- .profile-page -->
+	</div><!-- .site-content -->
+	
+	<footer class="footer">
+		<p>Copyright &copy; Staffy 2016</p>
+		
+		<ul>
+			<li>
+				<a href="#">About</a>
+			</li>
+			<li>
+				<a href="#">Job Seekers</a>
+			</li>
+			<li>
+				<a href="#">Employers</a>
+			</li>
+			<li>
+				<a href="#">Help</a>
+			</li>
+			<li>
+				<a href="#">Privacy Policy</a>
+			</li>
+			<li>
+				<a href="#">Disclaimer</a>
+			</li>
+		</ul>
+	</footer><!-- .footer -->
+	
+	<div id="menu-slideout">
+		<div class="menu-inner">
+			<span id="close">X</span>
+			<nav id="navbar">
+				<ul>
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+					<li><a href="#"><i class="fa fa-clock-o"></i> Set Availability</a></li>
+					<li><a href="#"><i class="fa fa-dollar"></i> Set Skills & Rates</a></li>
+					<li><a href="#"><i class="fa fa-question"></i> Help</a></li>
+					<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+          		</ul>
+        	</nav><!-- #navbar -->
+		</div><!-- .menu-inner -->
+	</div><!-- #menu-slideout -->
+	
+	<div class="mask"></div>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	
+	<script src="https://maps.gstatic.com/maps-api-v3/api/js/20/10/intl/en_gb/main.js" type="text/javascript"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwUaJPZcFiZnbsZ9ZY6bukGADIuQ8YFKc" type="text/javascript"></script>	
+	<script>
+		function initialize() {
+			
+			var latLng = {lat: 43.672615, lng: -79.821623};
+		  	var mapProp = {
+		    	center: latLng,
+				zoom: 14,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+		 	};
+		  	var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+		  	var marker = new google.maps.Marker({
+		  		position: latLng,
+		  		map: map,
+		  		title: 'Hello World!'
+  			});
+
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+	<script>
+		$(document).ready(function() {
+			
+			$( "#tabs" ).tabs();
+			$("#menu-slide").click(function() {
+				$("body").addClass("menu-open");
+				$(".mask").show();
+			});
+			$(".menu-inner #close").click(function() {
+				$("body").removeClass("menu-open");
+				$(".mask").hide();
+			});
+		});
+	</script>
+	
+	
+</body>
+
+</html>

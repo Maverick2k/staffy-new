@@ -1,0 +1,27 @@
+<ion-view title="Staffer Overview">
+    <ion-content padding="'true'" class="has-header">
+        <div class="list card">
+            <div class="item item-thumbnail-left">
+                <img class="img-cover" class="" src="{{getProfilePic(getSelectedUser().data.profileUrl)}}">
+                <h1>{{dataStore.loadedUser.firstName}} {{dataStore.loadedUser.lastName}}</h1>
+            </div>
+            <div class="item item-text-wrap">
+                <div class="list">
+                </div>
+                <ion-list>
+                    <ion-item menu-close="" ng-repeat="skill in dataStore.loadedUser.skills" ng-show="{{skill.has}}">{{skill.name}} (${{skill.rate}}/hour)
+                        <button menu-close="" ng-click="sendRequest(dataStore.loadedUser, skill)" class="button button-balanced button-block">Send Work Request</button>
+                    </ion-item>
+                </ion-list>
+                <h1>Reviews</h1>
+                <ion-list>
+                    <ion-item menu-close="" ng-repeat="obj in dataStore.loadedUser.jobs">
+                        <starrating stars="obj.comments.entity.rating"></starrating>
+                        <p>{{obj.skill}}</p>
+                        <p>{{obj.startTime}}</p>
+                    </ion-item>
+                </ion-list>
+                {{getSelectedUser().data.jobs}}
+            </div>
+    </ion-content>
+</ion-view>

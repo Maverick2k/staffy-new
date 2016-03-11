@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staffy</title>
+    <style>
+    .angular-google-map-container {
+        width: 100%;
+        height: 504px;
+    }
+    </style>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/ionic/js/angular-resource.js"></script>
+    <!-- <script src="lib/angular-resource/angular-resource.min.js"></script> -->
+    <!-- <script src="lib/ng-resource/dist/ng-resource.js"></script> -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,700|Lato:100,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- compiled css output -->
+    <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/user.service.js"></script>
+    <script src="js/services/auth.service.js"></script>
+    <script src="js/services/camera.service.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/directives/mongoose-error.directive.js"></script>
+</head>
+
+<body>
+	
+	<div class="mobile-splash mobile-signup mobile-signup-staffer">
+		<div class="table">
+			<div class="table-cell">
+				<div class="inner">
+					<img class="app-logo" src="/img/logo.png">
+					<form name="form" class="list ng-valid ng-dirty ng-valid-parse" style="">
+						<img class="avatar" src="/img/avatar-black.png">
+						<a href="">Upload a profile picture</a>
+							<div class="staffer-form-inner">
+							<label class="item item-checkbox ng-valid" name="busser / bar back" ng-model="industryModels[job]" ng-repeat="job in constants.industries" style="">
+								<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+									<input type="checkbox" name="busser / bar back" ng-model="industryModels[job]" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on" style="">
+									<i class="checkbox-icon"></i>
+								</div>
+								<div ng-transclude="" class="item-content disable-pointer-events">
+									<span class="ng-binding">busser / bar back</span>
+								</div>
+								</label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="dishwasher" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="dishwasher" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">dishwasher</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="coat check" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="coat check" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">coat check</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="prep cook" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="prep cook" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">prep cook</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="line cook" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="line cook" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">line cook</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="sous chef" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="sous chef" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">sous chef</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="glass polisher" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="glass polisher" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">glass polisher</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="server" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="server" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">server</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="catering server" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="catering server" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">catering server</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="catering bartender" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="catering bartender" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">catering bartender</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="service bartender" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="service bartender" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">service bartender</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="lead bartender" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="lead bartender" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">lead bartender</span></div></label><!-- end ngRepeat: job in constants.industries --><label class="item item-checkbox ng-valid" name="sommelier" ng-model="industryModels[job]" ng-repeat="job in constants.industries"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" name="sommelier" ng-model="industryModels[job]" class="ng-pristine ng-untouched ng-valid"><i class="checkbox-icon"></i></div><div ng-transclude="" class="item-content disable-pointer-events"><span class="ng-binding">sommelier</span></div></label><!-- end ngRepeat: job in constants.industries -->
+							</div><!-- .staffer-form-inner -->
+							<input class="green" type="submit" value="Next Step">
+        </form>
+				</div><!-- .inner -->
+			</div><!-- .table-cell -->
+		</div><!-- .table -->
+	</div><!-- .mobile-splash -->
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	
+	
+</body>
+
+</html>

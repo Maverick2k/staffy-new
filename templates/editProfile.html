@@ -1,0 +1,41 @@
+<ion-view title="Edit Profile">
+    <ion-content padding="'true'" class="has-header">
+        <div class="item">
+            <img class="img-cover" src="{{profilePic()}}">
+        </div>
+        <form class="list">
+
+            <button ng-show="true" ng-click="getPhoto()" class="button button-stable button-icon button-large icon ion-camera">Change Picture</button>
+            <label class="item item-input" name="firstName">
+                <span class="input-label">First Name</span>
+                <input type="text" ng-model="getCurrentUser().firstName" placeholder="First Name">
+            </label>
+            <label class="item item-input" name="lastName">
+                <span class="input-label">Last Name</span>
+                <input type="text" ng-model="getCurrentUser().lastName" placeholder="Last Name">
+            </label>
+            <label class="item item-input" name="phoneNumber">
+                <span class="input-label">Phone Number</span>
+                <input type="tel" ng-model="getCurrentUser().phoneNumber" placeholder="Phone Number">
+            </label>
+            <label class="item item-input" name="address">
+                <span class="input-label">Street</span>
+                <input ng-model="getCurrentUser().address.street" type="text" placeholder="Street Address">
+            </label>
+            <label class="item item-input" name="postalcode">
+                <span class="input-label">Postal Code</span>
+                <input ng-model="getCurrentUser().address.code" type="text" placeholder="Postal Code">
+            </label>
+            <label class="item item-input" name="city">
+                <span class="input-label">City</span>
+                <input ng-model="getCurrentUser().address.city" type="text" placeholder="City">
+            </label>
+            <label class="item item-input" name="about">
+                <span class="input-label">About</span>
+                <textarea ng-model="getCurrentUser().about" placeholder="{{getCurrentUser().about}}"> </textarea>
+            </label>
+        </form>
+        <button ng-click="updateProfile()" class="button button-balanced button-block ">Save</button>
+        <button ng-click="cancelUpdate()" class="button button-balanced button-block ">Cancel</button>
+    </ion-content>
+</ion-view>

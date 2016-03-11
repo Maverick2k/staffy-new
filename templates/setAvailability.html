@@ -1,0 +1,15 @@
+<ion-view title="Set Availability">
+    <ion-content padding="'true'" class="has-header">
+        <form class="list">
+            <ion-toggle toggle-class="toggle-positive" ng-checked="getCurrentUser().availability.mon.available" ng-model="getCurrentUser().availability.mon.available" name="mon">Monday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.tue.available" ng-checked="getCurrentUser().availability.tue.available" name="tue">Tuesday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.wed.available" ng-checked="getCurrentUser().availability.wed.available" name="wed">Wednesday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.thu.available" ng-checked="getCurrentUser().availability.thu.available" name="thu">Thursday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.fri.available" ng-checked="getCurrentUser().availability.fri.available" name="fri">Friday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.sat.available" ng-checked="getCurrentUser().availability.sat.available" name="sat">Saturday</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" ng-model="getCurrentUser().availability.sun.available" ng-checked="getCurrentUser().availability.sun.available" name="sun">Sunday</ion-toggle>
+            <button ng-click="updateAvailability()" class="button button-balanced button-block ">Update</button>
+            <button ng-click="cancelUpdate()" class="button button-balanced button-block ">Cancel</button>
+        </form>
+    </ion-content>
+</ion-view>

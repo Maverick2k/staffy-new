@@ -1,0 +1,9 @@
+<ion-view title="Staffer Signup">
+    <ion-content padding="'true'" class="has-header">
+        <form class="list" name="form">
+            <button class="button  button-icon  icon ion-camera button-full"> upload picture (comming soon)</button>
+            <ion-checkbox ng-repeat="job in constants.industries" ng-model="industryModels[job]" name="{{job}}">{{job}}</ion-checkbox>
+        </form>
+        <a menu-close="" ng-click="setStafferData(form)" class="button button-balanced button-block  icon-right ion-ios-arrow-right">Next</a>
+    </ion-content>
+</ion-view>

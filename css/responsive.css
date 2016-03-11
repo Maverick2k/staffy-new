@@ -1,0 +1,124 @@
+@media only screen
+and (max-width : 1099px) {
+	.staff-img {
+		width: 515px;
+	}
+}
+@media only screen
+and (max-width : 991px) {
+	.top br {
+		display: none;
+	}
+}
+@media only screen
+and (max-width : 890px) {
+	.staff-img {
+	    width: 50%;
+	}
+}
+@media only screen
+and (max-width : 767px) {
+	.top {
+		text-align: center;
+		height: auto !important;
+	}
+	.staff-img {
+		left: 0;
+	    margin: 0 auto;
+	    right: 0;
+	    height: 225px;
+	    width: 250px;
+	}
+	.actions + .btn {
+		margin-bottom: 295px;
+	}
+	#menu-slideout {
+		width: 100%;
+		transform: translateX(-100%);
+		-moz-transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		-o-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
+		transition: transform 0.5s ease-in-out 0.25s;
+		-moz-transition: -moz-transform 0.5s ease-in-out 0.25s;
+		-webkit-transition: -webkit-transform 0.5s ease-in-out 0.25s;
+		-o-transition: -o-transform 0.5s ease-in-out 0.25s;
+    	-ms-transition: -ms-transform 0.5s ease-in-out 0.25s;
+	}
+	.top h2 {
+		font-size: 36px;
+		margin-top: 60px;
+	}
+	.top p {
+		font-size: 18px;
+	}
+	#tabs > ul li + li {
+		margin-left: 0;
+		margin-top: 5px;
+	}
+	.drawer-open .drawer-inner {
+		height: 100%;
+		padding-bottom: 30px;
+	}
+	.staffer-search-box {
+		width: 100%;
+	}
+	.staffer-search-box input[type="text"] {
+		width: 70%;
+	}
+	.staffer-search-box input[type="submit"] {
+		width: 30%;
+	}
+	.view-staffer {
+		text-align: center;
+	}
+	.view-staffer img {
+		margin-bottom: 15px;
+	}
+	.profile-bg {
+		height: 450px;
+	}
+	.staffer-info {
+		margin-bottom: 15px;
+	}
+	.staffer-filters {
+		width: 100%;
+	}
+	.staffer-filters .col-sm-4 + .col-sm-4 + .col-sm-4 {
+		margin-top: 15px;
+	}
+	.profile-avatar {
+		padding-right: 30px;
+	}
+	.profile-inner {
+		padding: 0 30px;
+	}
+	.profile-top {
+		padding-bottom: 0;
+		border-bottom: 1px solid #eee;
+	}
+	.user-nav {
+		float: right;
+		margin-top: 15px;
+	}
+	#menu-slide {
+		margin-top: 12px;
+	}
+	.logo {
+	    left: 50%;
+	    position: absolute;
+	    top: 18px;
+	    width: 100px;
+	    margin: 0 0 0 -50px;
+	}
+	.header {
+	    height: 58px;
+	}
+	#notifications {
+		position: auto;
+	}
+	#notifications .label-danger {
+		top: 6px;
+		right: 4px;
+	}
+}

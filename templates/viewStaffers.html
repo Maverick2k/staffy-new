@@ -1,0 +1,27 @@
+<ion-view title="View Staffers">
+    <ion-content padding="'true'" class="has-header">
+        <form class="list">
+            <label class="item item-select" name="skill-filter">
+                <span class="input-label">skill</span>
+
+                <select ng-model="filter.skill" ng-change="filterStaffers()" >
+                    <option>all</option>
+                    <option ng-repeat="skill in constants.industries">{{skill}}</option>
+
+                </select>
+            </label>
+<!--             <ion-item class="range range-energized">rating
+                <input ng-model="filter.stars" ng-change="filterStaffers()" type="range" value="3" min="0" max="5" name="rating-filter">
+            </ion-item>
+ --> 
+            <ion-item ng-repeat="staffer in staffers" menu-close="" class="item-thumbnail-left" ng-click="viewStaffer(staffer._id)">
+                <img src="{{getProfilePic( staffer.profileUrl )}}" class="img-cover">
+                <h2>{{staffer.firstName}}</h2>
+                <h2>{{staffer.rating}}</h2>
+                <p>{{staffer.about}}</p>
+                <!-- <p>{{staffer.skills}}</p> -->
+                <p>{{staffer.address.city}}</p>
+            </ion-item>
+        </form>
+    </ion-content>
+</ion-view>

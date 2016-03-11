@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Staffy</title>
+    <style>
+    .angular-google-map-container {
+        width: 100%;
+        height: 504px;
+    }
+    </style>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/ionic/js/angular-resource.js"></script>
+    <!-- <script src="lib/angular-resource/angular-resource.min.js"></script> -->
+    <!-- <script src="lib/ng-resource/dist/ng-resource.js"></script> -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo:400,700|Lato:100,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- compiled css output -->
+    <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services/user.service.js"></script>
+    <script src="js/services/auth.service.js"></script>
+    <script src="js/services/camera.service.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/directives/mongoose-error.directive.js"></script>
+</head>
+
+<body>
+	
+    <header class="header">
+		<div class="container">
+			<img class="logo" src="/img/logo.png">
+			<button id="menu-slide"></button>
+			<a class="staffer-btn hidden-xs" href="#">Become a Staffer</a>
+      	</div>
+	</header><!-- .header -->
+	
+	<div class="site-content">
+		<div class="profile-page">
+			<div class="profile-bg"></div>
+			<div class="container">
+				<div class="profile-content">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="profile-top">
+								<div class="profile-avatar">
+									<span class="name">Nick Mather</span>
+									<img src="/img/profile-avatar.png">
+									<span>Bournemouth, United Kingdom</span>
+									<span>n.mather@gmail.com</span>
+									<span>01244 512 3330</span>
+								</div><!-- .profile-avatar -->
+							</div><!-- .profile-top -->
+						</div><!-- .col-sm-3 -->
+						<div class="col-sm-6">
+							<div class="profile-inner">
+								<div class="username">@Maverick</div>
+								<div class="job-title">Waiter / Bartender</div>
+			  					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.</p>
+			  					<p>Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+			  					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor.</p>
+							</div><!-- .profile-inner -->
+						</div><!-- .col-sm-6 -->
+						<div class="col-sm-3">
+							<div class="profile-stats">
+								<div class="hire-me">Hire Me</div>
+								<div class="user-rating">
+									<span class="rating">4.8</span>
+									<span class="stars"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></span>
+								</div><!-- .user-rating -->
+								<div class="user-skills">
+									<h2>Skills & Rate</h2>
+									<div class="row">
+										<div class="col-xs-8">Head Chef</div>
+										<div class="col-xs-4">$22/hr</div>
+										<div class="col-xs-8">Sous Chef</div>
+										<div class="col-xs-4">$16/hr</div>
+										<div class="col-xs-8">Bartender</div>
+										<div class="col-xs-4">$18/hr</div>
+										<div class="col-xs-8">Bar Back</div>
+										<div class="col-xs-4">$10/hr</div>
+										<div class="col-xs-8">Waiter</div>
+										<div class="col-xs-4">$15/hr</div>
+										
+										<div class="col-sm-12">
+											<div class="availability">
+												<h2>Availability</h2>
+												<span>32 hours / week</span>
+											</div><!-- .availability -->
+										</div><!-- .col-sm-12 -->
+									</div><!-- .row -->
+								</div><!-- .user-skills -->
+							</div><!-- .profile-stats -->
+						</div><!-- .col-sm-3 -->
+					</div><!-- .row -->
+				</div><!-- .profile-content -->
+				<div class="reviews">
+					<h2>Recent Reviews</h2>
+					<div class="reviews-body">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="review-title">Sous Chef needed for popular restaurant</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="user-rating">
+											<span class="rating">4.8</span>
+											<span class="stars"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></span>
+										</div><!-- .user-rating -->
+									</div><!-- .col-sm-4 -->
+									<div class="col-sm-8">
+										<div class="money-earned">$3,500</div>
+									</div><!-- .col-sm-8 -->
+								</div><!-- .row -->
+								<p>Nick is the absolute best! I would strongly urge you to use him for your website programming/website design needs. He has excellent communication, a terrific work ethic, and the quality of his deliverable remains unmatched. Thanks, Nick</p>
+							</div><!-- .col-sm-6 -->
+							<div class="col-sm-6">
+								<div class="review-title">Bartender for up and coming bar</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="user-rating">
+											<span class="rating">5.0</span>
+											<span class="stars"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+										</div><!-- .user-rating -->
+									</div><!-- .col-sm-4 -->
+									<div class="col-sm-8">
+										<div class="money-earned">$8,925</div>
+									</div><!-- .col-sm-8 -->
+								</div><!-- .row -->
+								<p>Nick is the absolute best! I would strongly urge you to use him for your website programming/website design needs. He has excellent communication, a terrific work ethic, and the quality of his deliverable remains unmatched. Thanks, Nick</p>
+							</div><!-- .col-sm-6 -->
+							<div class="col-sm-6">
+								<div class="review-title">Sous Chef needed for popular restaurant</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="user-rating">
+											<span class="rating">4.8</span>
+											<span class="stars"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></span>
+										</div><!-- .user-rating -->
+									</div><!-- .col-sm-4 -->
+									<div class="col-sm-8">
+										<div class="money-earned">$3,500</div>
+									</div><!-- .col-sm-8 -->
+								</div><!-- .row -->
+								<p>Nick is the absolute best! I would strongly urge you to use him for your website programming/website design needs. He has excellent communication, a terrific work ethic, and the quality of his deliverable remains unmatched. Thanks, Nick</p>
+							</div><!-- .col-sm-6 -->
+							<div class="col-sm-6">
+								<div class="review-title">Bartender for up and coming bar</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="user-rating">
+											<span class="rating">5.0</span>
+											<span class="stars"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+										</div><!-- .user-rating -->
+									</div><!-- .col-sm-4 -->
+									<div class="col-sm-8">
+										<div class="money-earned">$8,925</div>
+									</div><!-- .col-sm-8 -->
+								</div><!-- .row -->
+								<p>Nick is the absolute best! I would strongly urge you to use him for your website programming/website design needs. He has excellent communication, a terrific work ethic, and the quality of his deliverable remains unmatched. Thanks, Nick</p>
+							</div><!-- .col-sm-6 -->
+						</div><!-- .row -->
+					</div><!-- .reviews-body -->
+				</div><!-- .reviews -->
+			</div><!-- .container -->
+		</div><!-- .profile-page -->
+	</div><!-- .site-content -->
+	
+	<footer class="footer">
+		<p>Copyright &copy; Staffy 2016</p>
+		
+		<ul>
+			<li>
+				<a href="#">About</a>
+			</li>
+			<li>
+				<a href="#">Job Seekers</a>
+			</li>
+			<li>
+				<a href="#">Employers</a>
+			</li>
+			<li>
+				<a href="#">Help</a>
+			</li>
+			<li>
+				<a href="#">Privacy Policy</a>
+			</li>
+			<li>
+				<a href="#">Disclaimer</a>
+			</li>
+		</ul>
+	</footer><!-- .footer -->
+	
+	<div id="menu-slideout">
+		<div class="menu-inner">
+			<span id="close">X</span>
+			<nav id="navbar">
+				<ul>
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+					<li><a href="#"><i class="fa fa-clock-o"></i> Set Availability</a></li>
+					<li><a href="#"><i class="fa fa-dollar"></i> Set Skills & Rates</a></li>
+					<li><a href="#"><i class="fa fa-question"></i> Help</a></li>
+					<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+          		</ul>
+        	</nav><!-- #navbar -->
+		</div><!-- .menu-inner -->
+	</div><!-- #menu-slideout -->
+	
+	<div class="mask"></div>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$( "#tabs" ).tabs();
+			$("#menu-slide").click(function() {
+				$("body").addClass("menu-open");
+				$(".mask").show();
+			});
+			$(".menu-inner #close").click(function() {
+				$("body").removeClass("menu-open");
+				$(".mask").hide();
+			});
+		});
+	</script>
+	
+	
+</body>
+
+</html>
